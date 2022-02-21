@@ -59,4 +59,19 @@ public class UmbController {
         this.books.get(bookId).setTitle(book.getTitle());
         this.books.get(bookId).setAuthor(book.getAuthor());
     }
+
+
+
+    @PostMapping("api/books")
+    public void createBook(@RequestBody String authorFirstName, String authorSecondName, String name, String isbn, int bookCounter){
+        Book newBook = new Book();
+        newBook.setAuthorFirstName(authorFirstName);
+        newBook.setAuthorSecondName(authorSecondName);
+        newBook.setName(name);
+        newBook.setIsbn(isbn);
+        newBook.setBookCounter(bookCounter);
+        this.books.add(newBook);
+    }
+
+
 }
